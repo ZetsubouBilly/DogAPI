@@ -1,4 +1,6 @@
 import React from "react"
+import SearchBar from "../SearchBar"
+
 
 import search from "../img/search.png"
 import back from "../img/back.png"
@@ -29,16 +31,7 @@ class Gallary extends React.Component {
     render () {
         return (
             <div className="gallery">
-                <div className="search__header">
-                    <form action="" method="get" className="form__search">
-                        <input className="input__search" type="search" placeholder='Search for breeds by name'/>
-                        <button type="submit" className="search__btn"><img src={search} alt="" /></button>
-                    </form>
-
-                    <a className="search__rating" href=""><img src={rateLike} alt="" /></a>
-                    <a className="search__rating" href=""><img src={rateFav} alt="" /></a>
-                    <a className="search__rating" href=""><img src={rateDis} alt="" /></a>
-                </div>
+               <SearchBar /> 
 
                 <div className="gallery__main">
                     <div className="gallery__main-head">
