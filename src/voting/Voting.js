@@ -2,20 +2,16 @@ import React from "react"
 import SearchBar from "../SearchBar"
 
 
-import search from "../img/search.png"
+
 import back from "../img/back.png"
 
-import rateLike from "../img/rating-like.png"
-import rateFav from "../img/rating-favorite.png"
-import rateDis from "../img/rating-dislike.png"
+
 
 import storyLike from "../img/story-like.png"
 import storyFav from "../img/story-favorite.png"
 import storyDis from "../img/story-dislike.png"
-import storyImage from "../img/story-img.png"
 
 import btnRateLike from "../img/btn-story-rate-like.png"
-import btnRateFav from "../img/btn-story-rate-favorite.png"
 import btnRateDis from "../img/btn-story-rate-dislike.png"
 
 
@@ -100,6 +96,7 @@ class Voting extends React.Component {
             this.setState({
                 favoriteStory:response,
             })
+            console.log(response)
         })
 
     }
@@ -113,13 +110,13 @@ class Voting extends React.Component {
         }))
     }
 
-    createFav (imgId) {
+    createFav(imgId) {
 
         let url = "https://api.thedogapi.com/v1/favourites";
 
 
 
-        console.log(this.state.img);
+        console.log(this.state.img, 'THIS IS IMAGE CONSOLE');
 
          if (this.state.like) {
              url = `https://api.thedogapi.com/v1/favourites/${this.state.favoriteId}`;
@@ -238,9 +235,9 @@ class Voting extends React.Component {
                                 this.getImage() }} className="btn-rate"><img src={btnRateLike} alt="" /></button>
                             <button className={`btn-rate ${favorite}`} onClick={()=>{this.createFav(this.state.img.id) }}>
                                <svg width="30" height="30" viewBox="0 0 31 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M8.07107 0C3.61354 0 0 3.61354 0 8.07107C0 10.2116 0.850339 12.2646 2.36396 13.7782L14.2929 25.7071C14.6834 26.0976 15.3166 26.0976 15.7071 25.7071L27.636 13.7782C29.1497 12.2646 30 10.2116 30 8.07107C30 3.61354 26.3865 0 21.9289 0C19.7884 0 17.7354 0.850341 16.2218 2.36396L15 3.58579L13.7782 2.36396C12.2646 0.850343 10.2116 0 8.07107 0Z" stroke="white" strokeWidth="2"/>
+                                    <path d="M8.07107 0C3.61354 0 0 3.61354 0 8.07107C0 10.2116 0.850339 12.2646 2.36396 13.7782L14.2929 25.7071C14.6834 26.0976 15.3166 26.0976 15.7071 25.7071L27.636 13.7782C29.1497 12.2646 30 10.2116 30 8.07107C30 3.61354 26.3865 0 21.9289 0C19.7884 0 17.7354 0.850341 16.2218 2.36396L15 3.58579L13.7782 2.36396C12.2646 0.850343 10.2116 0 8.07107 0Z" stroke="white" strokeWidth="2"/>
                                 </svg>
-                                </button>
+                            </button>
                                 <button onClick={()=>{this.createVote(this.state.img.id, 0)
                                     this.setState(state =>(                               
                                 {
@@ -254,11 +251,11 @@ class Voting extends React.Component {
                         {voteStory.map(storyItem=>{let date = new Date(storyItem.created_at)
                         let storyItemIcon = {storyFav};
                         let storyItemDescription ="was added to Favourites";
-                        if(storyItem.value==0) {
+                        if(storyItem.value===0) {
                             storyItemIcon=storyDis;
                              storyItemDescription ="was added to Dislike";
                         }
-                        else if (storyItem.value==1) {
+                        else if (storyItem.value===1) {
                             storyItemIcon=storyLike;
                              storyItemDescription ="was added to Like";
                         }

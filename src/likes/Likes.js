@@ -5,7 +5,7 @@ import SearchBar from "../SearchBar"
 import back from "../img/back.png"
 
 
-class GridItem extends React.Component {
+export class GridItem extends React.Component {
     constructor(props) {
         super(props)
         this.state={
@@ -23,7 +23,7 @@ class GridItem extends React.Component {
     getLikeImg(imgId) {
         let url = `https://api.thedogapi.com/v1/images/${imgId}`;
         
-         console.log(url);
+        //  console.log(url);
 
         
 
@@ -40,6 +40,8 @@ class GridItem extends React.Component {
             this.setState({
                 img:response,
             })
+            console.log(response)
+
         })
    
     } 
@@ -59,12 +61,8 @@ class GridItem extends React.Component {
 class Likes extends React.Component {
     constructor(props){
         super(props)
-        this.state={
-           
-           
-            voteStory:[],
-             
-
+        this.state={         
+            voteStory:[],            
         }
         
         this.getStory=this.getStory.bind(this);
