@@ -4,19 +4,7 @@ import Dropdown from "./Dropdown"
 
 import back from "../img/back.png"
 import dropArrow from "../img/dropdown-arrow.png"
-
-import dog1 from "../img/dog1.png"
-import dog2 from "../img/dog2.png"
-import dog3 from "../img/dog3.png"
-import dog4 from "../img/dog4.png"
-import dog5 from "../img/dog5.png"
-
-import dog6 from "../img/dog6.png"
-import dog7 from "../img/dog7.png"
-import dog8 from "../img/dog8.png"
-import dog9 from "../img/dog9.png"
-import { GridItem } from "../likes/Likes"
-
+import GridBody from "./GridBody"
 
 class Breeds extends React.Component {
     constructor(props) {
@@ -25,8 +13,9 @@ class Breeds extends React.Component {
             isVisible:false,
             breeds:[],
             breed:"All Breeds",
+            // breed:"Akita",
             sort: true,
-            breedImg:{},
+            
             
 
         }
@@ -47,8 +36,8 @@ class Breeds extends React.Component {
     changeBreed(e) {
         this.setState({
             breed:e.target.innerText,
-
         })
+        // debugger;
     }
 
 
@@ -77,10 +66,6 @@ class Breeds extends React.Component {
        
         
     }
-
-
-    
-
 
 
     dropdownClick () {
@@ -113,11 +98,8 @@ class Breeds extends React.Component {
         let sortA = 'active';
         let sortZ = '';
         let storyImg = (<div className="placeholder"> <div className="Load"></div></div>);
-        let breedImgArr=[];
-
         
-
-        
+     
         if (this.state.isVisible) {
             visible = "active"
         }
@@ -129,8 +111,11 @@ class Breeds extends React.Component {
 
         }
 
-
-  
+        // if(this.state.breed.name == this.state.breeds.name){
+            
+        // }
+// console.log(this.state.breeds.image)
+console.log(this.state.breeds)
 
         return (
             <div className="breeds">
@@ -165,26 +150,8 @@ class Breeds extends React.Component {
                         </button>                         
                     </div>
                     <div className="breeds__main-body">
-                        <div className="grid-block1">
-                           
-
-                                {this.state.breeds.map((elem)=>
-                                   <div className="grid_item">
-                                   <div className="grid_item-wrapper">
-                                       <div className="wrapper_label">{elem.name}</div>
-                                   </div>
-                                   <img  src={elem.image.url}/>
-
-                                   </div>
-                                     
-
-                                )}
-                                
-                          
-                            
-                        </div>
                         
-                        
+                        <GridBody breeds={this.state.breeds} breed={this.state.breed}/>
                     </div>
                 </div>
             </div>

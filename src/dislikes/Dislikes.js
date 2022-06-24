@@ -45,9 +45,6 @@ class GridItem extends React.Component {
     } 
     render () {
 
-        
-
-
         return (
             <div className="grid_item"><img src={this.state.img.url} alt="" /></div>
         )
@@ -59,16 +56,11 @@ class GridItem extends React.Component {
 class Dislikes extends React.Component {
     constructor(props){
         super(props)
-        this.state={
-           
-           
+        this.state={          
             voteStory:[],
-             
-
         }
         
         this.getStory=this.getStory.bind(this);
-
     }
 
 
@@ -111,22 +103,17 @@ class Dislikes extends React.Component {
         
 
 
-        for (let key in this.state.img ) {
-            storyImg =  (<img src={this.state.img.url} alt="" />);
-            break;
-         }
+        // for (let key in this.state.img ) {
+        //     storyImg =  (<img src={this.state.img.url} alt="" />);
+        //     break;
+        //  }
         return (
             <div className="dislikes">
                 <SearchBar /> 
-
                 <div className="voting__main">
                     <div className="voting__main-head">
                         <button  className="btn-back"><img src={back} alt=""/></button>
-                        <button className="btn-static">DISLIKES</button>
-                        
-                       
-                       
-                                              
+                        <button className="btn-static">DISLIKES</button>                                              
                     </div>
                     <div className="breeds__main-body">
                         <div className="favourites__main">
@@ -135,11 +122,7 @@ class Dislikes extends React.Component {
                                   <GridItem id={item.image_id} />
                                 )}
                             </div>
-                        </div>
-                        
-                        
-                       
-                        
+                        </div>                       
                     </div>
                 </div>
             </div>

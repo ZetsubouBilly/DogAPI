@@ -47,9 +47,6 @@ export class GridItem extends React.Component {
     } 
     render () {
 
-        
-
-
         return (
             <div className="grid_item"><img src={this.state.img.url} alt="" /></div>
         )
@@ -66,8 +63,6 @@ class Likes extends React.Component {
         }
         
         this.getStory=this.getStory.bind(this);
-
-
     }
 
 
@@ -154,23 +149,16 @@ class Likes extends React.Component {
                     <div className="voting__main-head">
                         <button  className="btn-back"><img src={back} alt=""/></button>
                         <button className="btn-static">LIKES</button>
-                        
-                       
-                       
-                                              
                     </div>
                     <div className="breeds__main-body">
                         <div className="favourites__main">
                             <div className="grid-block1">
+                                
                                 {likesArr.map(item=>
                                   <GridItem id={item.image_id} />
                                 )}
                             </div>
-                        </div>
-                        
-                        
-                       
-                        
+                        </div>                      
                     </div>
                 </div>
             </div>
